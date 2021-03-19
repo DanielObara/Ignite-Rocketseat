@@ -1,3 +1,4 @@
-export function App() {
-  return( <h1>Hello</h1>);
+export function App(){
+  throw new Error("Eta carai, deu ruim..")
+  return <h1>Javascriptô!!!</h1>
 }
