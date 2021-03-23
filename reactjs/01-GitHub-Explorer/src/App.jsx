@@ -1,4 +1,5 @@
+import './styles/global.css'
+
 export function App(){
-  throw new Error("Eta carai, deu ruim..")
-  return <h1>Javascriptô!!!</h1>
+  return <h1>Hello World</h1>
 }
