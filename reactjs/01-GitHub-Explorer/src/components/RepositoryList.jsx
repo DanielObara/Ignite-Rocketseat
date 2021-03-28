@@ -1,4 +1,5 @@
 import React from "react";
+import { Counter } from "./Counter";
 import RepositoryItem from "./RepositoryItem";
 
 const repository= {
@@ -13,6 +14,7 @@ function RepositoryList(props) {
       <h1>Lista de repositorios</h1>
       <ul>
         <RepositoryItem repository={repository} />
+        <Counter />
       </ul>
     </section>
   );
