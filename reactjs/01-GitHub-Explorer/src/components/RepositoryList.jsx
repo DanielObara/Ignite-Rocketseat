@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import RepositoryItem from "./RepositoryItem";
 import '../styles/repositories.scss'
 
@@ -16,7 +16,7 @@ function RepositoryList() {
     .then(response => response.json())
     .then(data => setRepositories(data))
   }, [repositories])
-  
+
   return (
     <section className="repository-list">
       <h1>Lista de repositorios</h1>
