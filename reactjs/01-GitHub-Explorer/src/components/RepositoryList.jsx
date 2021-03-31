@@ -1,6 +1,6 @@
 import React from "react";
-import { Counter } from "./Counter";
 import RepositoryItem from "./RepositoryItem";
+import '../styles/repositories.scss'
 
 const repository= {
     nome: 'teste',
@@ -14,7 +14,6 @@ function RepositoryList(props) {
       <h1>Lista de repositorios</h1>
       <ul>
         <RepositoryItem repository={repository} />
-        <Counter />
       </ul>
     </section>
   );
