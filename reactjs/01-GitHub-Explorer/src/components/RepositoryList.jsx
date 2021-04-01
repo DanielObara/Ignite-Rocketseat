@@ -21,7 +21,8 @@ function RepositoryList() {
     <section className="repository-list">
       <h1>Lista de repositorios</h1>
       <ul>
-        <RepositoryItem repository={repository} />
+        {repositories.map(repositorie => (<RepositoryItem key={repositorie.name} repository={repositorie} />))}
+       
       </ul>
     </section>
   );
