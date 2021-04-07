@@ -2,14 +2,14 @@ import React, { useState, useEffect } from "react";
 import RepositoryItem from "./RepositoryItem";
 import '../styles/repositories.scss'
 
-const repository= {
-    nome: 'teste',
-    description: 'asdfasdf',
-    link: 'www.google.com'
+interface Repository {
+  name: string;
+  description: string;
+  html_url: string;
 }
 
 function RepositoryList() {
-  const [repositories, setRepositories] = useState([])
+  const [repositories, setRepositories] = useState<Repository[]>([])
 
   useEffect(() => {
     fetch('https://api.github.com/users/danielobara/repos')
