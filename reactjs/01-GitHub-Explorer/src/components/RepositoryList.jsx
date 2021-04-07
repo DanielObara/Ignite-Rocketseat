@@ -22,7 +22,6 @@ function RepositoryList() {
       <h1>Lista de repositorios</h1>
       <ul>
         {repositories.map(repositorie => (<RepositoryItem key={repositorie.name} repository={repositorie} />))}
-       
       </ul>
     </section>
   );
