@@ -12,7 +12,7 @@ export const GlobalStyle = createGlobalStyle`
 		--shape: #ffff;
 	}
 	
-	*{
+	* {
 		margin: 0;
 		padding: 0;
 		box-sizing: border-box;
@@ -20,7 +20,7 @@ export const GlobalStyle = createGlobalStyle`
 	
 	/* font-size de 16px é bom para Desktop */
 	// REM = 1rem = font-size 
-	html{
+	html {
 		@media (max-width: 1080px){
 			font-size: 93.75%; //15px
 		}
@@ -35,7 +35,16 @@ export const GlobalStyle = createGlobalStyle`
 	 -webkit-font-smoothing: antialiased;	
 	}
 	
-	button{
+	body, input, textarea, button {
+		font-family: 'Poppins', sans-serif;
+		font-weight: 400px;
+	}
+	
+	h1, h2, h3, h4, h5, h6, strong {
+		font-weight: 600;
+	}
+	
+	button {
 		cursor: pointer;
 	}
 	
