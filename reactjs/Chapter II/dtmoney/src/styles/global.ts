@@ -74,6 +74,7 @@ export const GlobalStyle = createGlobalStyle`
 		padding: 3rem;
 		position: relative;
 	}
+	
 	.react-modal-close {
 		position: absolute;
 		right: 1.5rem;
