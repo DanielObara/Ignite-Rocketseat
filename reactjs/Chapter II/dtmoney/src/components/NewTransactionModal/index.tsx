@@ -1,3 +1,5 @@
+import { title } from "node:process";
+import { FormEvent } from "react";
 import { useState } from "react";
 import ReactModal from "react-modal";
 import closeImg from '../../assets/close.svg'
@@ -12,7 +14,15 @@ interface newTransactionModalProps {
 
 export function NewTransactionModal({ isOpen, onRequestClose }: newTransactionModalProps) {
 	const [type, setType] = useState('deposit')
-	
+	const [value, setValue] = useState(0)
+	const [category, setCategory] = useState('')
+	const [title, setTitle] = useState('')
+
+	function handleCreateNewTransaction(event: FormEvent) {
+		event.preventDefault();
+		console.log()
+	}
+
 	return (
 		<ReactModal
 			isOpen={isOpen}
@@ -20,7 +30,7 @@ export function NewTransactionModal({ isOpen, onRequestClose }: newTransactionMo
 			overlayClassName="react-modal-overlay"
 			className="react-modal-content"
 		>
-			<button 
+			<button
 				type="button"
 				onClick={onRequestClose}
 				className="react-modal-close"
@@ -29,14 +39,22 @@ export function NewTransactionModal({ isOpen, onRequestClose }: newTransactionMo
 			</button>
 
 
-			<Container>
+			<Container onSubmit={handleCreateNewTransaction}>
 				<h2>Cadastrar Transação</h2>
-				<input type="text" placeholder="Titulo" />
-				<input type="number" placeholder="Valor" />
+				<input type="text"
+					value={title}
+					onChange={(e) => setTitle(e.target.value)}
+					placeholder="Titulo"
+				/>
+				<input type="number"
+					value={value}
+					onChange={(e) => setValue(Number(e.target.value))}
+					placeholder="Valor"
+				/>
 				<TransactionTypeContainer>
 					<RadioBox
 						type="button"
-						onClick={() => {setType('deposit')}}
+						onClick={() => { setType('deposit') }}
 						isActive={type === 'deposit'}
 						activeColor="green"
 					>
@@ -53,8 +71,12 @@ export function NewTransactionModal({ isOpen, onRequestClose }: newTransactionMo
 						<span>Saída</span>
 					</RadioBox>
 				</TransactionTypeContainer>
-				
-				<input type="text" placeholder="categoria" />
+
+				<input type="text"
+					value={category}
+					onChange={(e) => setCategory(e.target.value)}
+					placeholder="categoria"
+				/>
 				<button type="submit">Cadastrar</button>
 			</Container>
 		</ReactModal>
