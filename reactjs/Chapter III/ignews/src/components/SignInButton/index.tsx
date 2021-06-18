@@ -6,7 +6,6 @@ import styles from './styles.module.scss'
 
 export function SignInButton() {
 	const [session] = useSession();
-  console.log("🚀 ~ file: index.tsx ~ line 9 ~ SignInButton ~ session", session)
 	
 	return session ? (
 		<button className={styles.signInButton} onClick={() => signOut()}type="button">
