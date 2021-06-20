@@ -6,6 +6,8 @@ export async function saveSubscription(
 	subscriptionId: string,
 	customerId: string,
 ) {
+  console.log("🚀 ~ file: manageSubscription.ts ~ line 9 ~ customerId", customerId)
+  console.log("🚀 ~ file: manageSubscription.ts ~ line 9 ~ subscriptionId", subscriptionId)
 	const userRef = await fauna.query(
 		q.Select(
 			"ref",
