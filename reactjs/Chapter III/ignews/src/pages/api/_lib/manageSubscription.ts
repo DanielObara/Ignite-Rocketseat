@@ -5,18 +5,17 @@ import { stripe } from "../../../services/stripe";
 export async function saveSubscription(
 	subscriptionId: string,
 	customerId: string,
+	createAction = false
 ) {
-  console.log("🚀 ~ file: manageSubscription.ts ~ line 9 ~ customerId", customerId)
-  console.log("🚀 ~ file: manageSubscription.ts ~ line 9 ~ subscriptionId", subscriptionId)
+	console.log("🚀 ~ file: manageSubscription.ts ~ line 9 ~ customerId", customerId)
+	console.log("🚀 ~ file: manageSubscription.ts ~ line 9 ~ subscriptionId", subscriptionId)
 	const userRef = await fauna.query(
 		q.Select(
 			"ref",
 			q.Get(
 				q.Match(
-					q.Index(
-						'user_by_stripe_customer_id',
-						customerId
-					)
+					q.Index('user_by_stripe_customer_id'),
+					customerId
 				)
 			)
 		)
@@ -31,11 +30,29 @@ export async function saveSubscription(
 		status: subscription.status,
 		price_id: subscription.items.data[0].price.id
 	}
-	
-	await fauna.query(
-		q.Create(
-			q.Collection('subscriptions'),
-			{ data: subscriptionData }
+
+	if (createAction) {
+		await fauna.query(
+			q.Create(
+				q.Collection('subscriptions'),
+				{ data: subscriptionData }
+			)
 		)
-	)
+	} else {
+		await fauna.query(
+			q.Replace(
+				q.Select(
+					'ref',
+					q.Get(
+						q.Match(
+							q.Index('subscription_by_id'),
+							subscriptionId
+						)
+					)
+				),
+				{ data: subscriptionData }
+			)
+		)
+	}
+
 }
