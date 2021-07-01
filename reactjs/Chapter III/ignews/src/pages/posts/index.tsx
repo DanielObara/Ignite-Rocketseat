@@ -10,7 +10,6 @@ export default function Posts() {
 			<Head>
 				<title>Posts | Ignews</title>
 			</Head>
-
 			<main>
 				<div className={styles.container}>
 					<a>
