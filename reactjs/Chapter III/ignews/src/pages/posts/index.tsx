@@ -10,19 +10,19 @@ export default function Posts() {
 			<Head>
 				<title>Posts | Ignews</title>
 			</Head>
-			<main>
-				<div className={styles.container}>
-					<a>
+			<main className={styles.container}>
+				<div className={styles.posts}>
+					<a href="#">
 						<time>12 de março de 2021</time>
 						<strong>Creating a Monorepo with Lerna & Yarn Workspaces </strong>
 						<p>In this guide, you will learn how to create a Monorepo to manage multiple packages with a shared build, test, and release process.</p>
 					</a>
-					<a>
+					<a href="#">
 						<time>12 de março de 2021</time>
 						<strong>Creating a Monorepo with Lerna & Yarn Workspaces </strong>
 						<p>In this guide, you will learn how to create a Monorepo to manage multiple packages with a shared build, test, and release process.</p>
 					</a>
-					<a>
+					<a href="#">
 						<time>12 de março de 2021</time>
 						<strong>Creating a Monorepo with Lerna & Yarn Workspaces </strong>
 						<p>In this guide, you will learn how to create a Monorepo to manage multiple packages with a shared build, test, and release process.</p>
@@ -43,7 +43,7 @@ export const getStaticProps: GetStaticProps = async () => {
 		pageSize: 100
 	})
 
-	console.log(JSON.stringify(response, null, 2));
+	console.log("resposta prismic",JSON.stringify(response, null, 2));
 
 	return {
 		props: {}
