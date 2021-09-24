@@ -1,6 +1,7 @@
 
 import { ActiveLink } from '../ActiveLink';
 import { SignInButton } from '../SignInButton'
+import Link from 'next/link';
 import styles from './styles.module.scss'
 
 function Header() {
@@ -16,7 +17,6 @@ function Header() {
 						<a>Posts</a>
 					</ActiveLink>
 				</nav>
-
 				<SignInButton />
 			</div>
 		</header>
